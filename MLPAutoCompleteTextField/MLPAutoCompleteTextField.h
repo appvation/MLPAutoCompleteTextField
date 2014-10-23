@@ -67,6 +67,8 @@
 @property (strong) UIColor *autoCompleteTableCellBackgroundColor;
 @property (strong) UIColor *autoCompleteTableCellTextColor;
 
+// custom properties
+@property (nonatomic, assign) UIEdgeInsets autoCompleteTopFramePush;
 
 - (void)registerAutoCompleteCellNib:(UINib *)nib forCellReuseIdentifier:(NSString *)reuseIdentifier;
 

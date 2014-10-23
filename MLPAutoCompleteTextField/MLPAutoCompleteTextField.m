@@ -556,6 +556,12 @@ withAutoCompleteString:(NSString *)string
     _autoCompleteScrollIndicatorInsets = autoCompleteScrollIndicatorInsets;
 }
 
+// custom
+- (void)setAutoCompleteTopFramePush:(UIEdgeInsets)autoCompleteTopFramePush
+{
+    _autoCompleteTopFramePush = autoCompleteTopFramePush;
+}
+
 - (void)resetKeyboardAutoCompleteTableFrameForNumberOfRows:(NSInteger)numberOfRows
 {
     [self.autoCompleteTableView.layer setCornerRadius:0];
@@ -770,7 +776,8 @@ withAutoCompleteString:(NSString *)string
     CGRect textFieldFrameInContainerView = [rootView convertRect:textField.bounds
                                                         fromView:textField];
     
-    CGFloat textfieldTopInset = textField.autoCompleteTableView.contentInset.top;
+    //CGFloat textfieldTopInset = textField.autoCompleteTableView.contentInset.top;
+    CGFloat textfieldTopInset = textField.autoCompleteTopFramePush.top;
     CGFloat converted_originY = textFieldFrameInContainerView.origin.y + textfieldTopInset;
     CGFloat height = [self autoCompleteTableHeightForTextField:textField withNumberOfRows:numberOfRows];
     
@@ -778,7 +785,7 @@ withAutoCompleteString:(NSString *)string
     newTableViewFrame.origin.y    = converted_originY;
     
     if(!textField.autoCompleteTableAppearsAsKeyboardAccessory){
-        newTableViewFrame.size.height += textfieldTopInset;
+        //newTableViewFrame.size.height += textfieldTopInset;
     }
     
     return newTableViewFrame;
